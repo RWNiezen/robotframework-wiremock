@@ -219,6 +219,11 @@ class WireMockLibrary(object):
         """Resets all logged requests on the wiremock server.
         """
         self._send_request("/__admin/requests/reset")
+    
+    def reset_server(self):
+        """Resets the wiremock server, including all mappings and request logs.
+        """
+        self._send_request("/__admin/reset")
 
     def _send_request(self, path, data=None):
         if isinstance(data, dict):
